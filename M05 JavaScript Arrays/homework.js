@@ -48,13 +48,20 @@ function dePalabrasAFrase(palabras) {
    // con un espacio entre cada palabra.
    // Ejemplo: ['Hello', 'world!'] -> 'Hello world!'.
    // Tu código:
-
+   juntas = palabras.join(' ');
+   return juntas;
 }
 
 function arrayContiene(array, elemento) {
    // Verifica si el elemento existe dentro del arreglo recibido.
    // Retornar true si está, o false si no está.
    // Tu código:
+   for(var i=0;i<array.length;i++){
+      if(array[i]==elemento){
+         return true;
+      }
+   }
+   return false;
 }
 
 function agregarNumeros(arrayOfNums) {
@@ -82,11 +89,11 @@ function promedioResultadosTest(resultadosTest) {
 function numeroMasGrande(arrayOfNums) {
    // El parámetro "arrayOfNums" es un arreglo de números.
    // Retornar el número más grande.
-   // Tu código:
-   var mayor=arrayOfNums[0];
-   for(var i=1;i<arrayOfNums.length;i++){
-      if(arrayOfNums[i]>mayor){
-         mayor = arrayOfNums[i];
+   // Tu código:                             // ejemplo array=[1,2,3,4,5]
+   var mayor=arrayOfNums[0];                 //toma el primer numero como mayor = 1
+   for(var i=1;i<arrayOfNums.length;i++){    //un ciclo for para recorrer todo el array 
+      if(arrayOfNums[i]>mayor){              //comparacion del numero mayor con los demas numero de la lista, en este caso compara con 2
+         mayor = arrayOfNums[i];             //en caso de cumplir, como en el ejemplo reemplaza a mayor = 2
       }
    }
    return mayor;
@@ -138,12 +145,27 @@ function empiezaConNueve(num) {
    // Esta función recibe por parámetro un número.
    // Debe retornar true si el entero inicia con 9 y false en otro caso.
    // Tu código:
+   var numero_a_string = num.toString();  //convierto el nro en string
+   var digitos = numero_a_string.split(''); //convierto el string en un array
+   if(digitos[0]=='9'){                   //controlo si el primer elemento del array es '9'
+      return true;
+   } else {
+      return false;
+   }
 }
 
 function todosIguales(array) {
    // Si todos los elementos del arreglo son iguales, retornar true.
    // Caso contrario retornar false.
    // Tu código:
+   var igual = array[0];
+   for(var i=1;i<array.length;i++){
+      if(igual != array[i]){
+         return false;
+         break;
+      }
+   }
+   return true;
 }
 
 function mesesDelAño(array) {
@@ -168,13 +190,25 @@ function tablaDelSeis() {
    // Escribe una función que muestre la tabla de multiplicar del 6 (del 0 al 60).
    // La función devuelve un arreglo con los resultados de la tabla de multiplicar del 6 en orden creciente.
    // Tu código:
+   var tabla = [];
+   for(var i=0;i<11;i++){
+      console.log('6 x ',i,'= ',6*i);
+      tabla.push(6*i);
+   }
+   return tabla;
 }
 
 function mayorACien(array) {
    // La función recibe un arreglo con enteros entre 0 y 200.
    // Recorrerlo y retornar un arreglo con todos los valores mayores a 100 (no incluye el 100).
    // Tu código:
-   
+   var mayoresCien = [];
+   for(var i = 0;i<array.length;i++){
+      if(array[i]>100){
+         mayoresCien.push(array[i]);
+      }
+   }
+   return mayoresCien;
 }
 
 /* ----------------------------------------------------------------------------------
@@ -188,6 +222,18 @@ function breakStatement(num) {
    // la ejecución y retornar el string: "Se interrumpió la ejecución".
    // [PISTA]: utiliza el statement 'break'.
    // Tu código:
+   var nuevo_valor=[];
+   var sum = num;
+   for(var i=1;i<11;i++){
+      if (sum==i){
+         return 'Se interrumpió la ejecución';
+         break;
+      } else {
+         sum = sum + 2;
+         nuevo_valor.push(sum);
+      }
+   }
+   return nuevo_valor;
 }
 
 function continueStatement(num) {
@@ -197,6 +243,17 @@ function continueStatement(num) {
    // se continua con la siguiente iteración.
    // [PISTA]: utiliza el statement 'continue'.
    // Tu código:
+   var nuevo_valor=[];
+   var sum = num;
+   for(var i=1;i<11;i++){
+      if (i==5){
+         continue;
+      } else {
+         sum = sum + 2;
+         nuevo_valor.push(sum);
+      }
+   }
+   return nuevo_valor;
 }
 
 /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/
